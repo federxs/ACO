@@ -133,6 +133,7 @@ public class Term {
     public static Term read(String term) {
         char c;
         ArrayList<Byte> t = new ArrayList<Byte>();
+        term = term.trim();
         for (int i = 0; i<term.length(); i++) {
             c = term.charAt(i);
             if (c == '0') {
@@ -150,6 +151,10 @@ public class Term {
         } else {
             return null;
         }
+    }
+    
+    public int getSize(){
+        return varVals.length;
     }
     
     public String getHumanReadable(String variables)

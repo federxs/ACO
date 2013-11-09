@@ -52,6 +52,7 @@ public class Main {
         
         TruthTableReader ttr = null;
         
+        tiraError = false;
         //ejemplo 1
         try {
             ttr = TruthTableReader.read(
@@ -75,6 +76,7 @@ public class Main {
         }
         
         //ejemplo 1.a
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcz" + "\n" +
@@ -93,11 +95,10 @@ public class Main {
         
         if (!tiraError) {
             System.out.println("La clase TruthTableReader no funciona bien, la ultima variable debe ser f (resultado de la funcion), ejemplo 1.a");
-        } else {
-            ttr.printReadable();
         }
         
         //ejemplo 2
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abc+f" + "\n" +
@@ -121,6 +122,7 @@ public class Main {
         }
         
         //ejemplo 3
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcf" + "\n" +
@@ -143,6 +145,7 @@ public class Main {
         }
 
         //ejemplo 4
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcf" + "\n" +
@@ -165,6 +168,7 @@ public class Main {
         }
 
         //ejemplo 5
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcf" + "\n" +
@@ -187,6 +191,7 @@ public class Main {
         }
         
         //ejemplo 6
+        tiraError = false;
         // tiene menos terminos (7 en vez de 8)
         try {
             ttr = TruthTableReader.read(
@@ -209,6 +214,7 @@ public class Main {
         }
 
         //ejemplo 7
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcf" + "\n" +
@@ -227,12 +233,13 @@ public class Main {
         }
         
         if (tiraError) {
-            System.out.println("La clase TruthTableReader no funciona bien, ejemplo 6");
+            System.out.println("La clase TruthTableReader no funciona bien, ejemplo 7");
         } else if (ttr.getTermsSize() != 5) {
             System.out.println("La clase TruthTableReader no funciona bien, deberia obtener solo 5 terminos, ejemplo 7");
         }
         
         //ejemplo 8
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "xyzf" + "\n" +
@@ -251,13 +258,14 @@ public class Main {
         }
         
         if (tiraError) {
-            System.out.println("La clase TruthTableReader no funciona bien, ejemplo 6");
-        } else if (ttr.getVariables() != "xyz") {
-            System.out.println("La clase TruthTableReader no funciona bien, deberia leer las variables xyz, ejemplo 8");
+            System.out.println("La clase TruthTableReader no funciona bien, ejemplo 8");
+        } else if (!ttr.getVariables().equals("xyz")) {
+            System.out.println("La clase TruthTableReader no funciona bien, deberia leer las variables xyz, devolvio " + ttr.getVariables() + " ejemplo 8");
         }
         
         
         //ejemplo 9
+        tiraError = false;
         try {
             ttr = TruthTableReader.read(
                 "abcf" + "\n" +
@@ -279,15 +287,15 @@ public class Main {
             System.out.println("La clase TruthTableReader no funciona bien, ejemplo 6");
         } else {
             ArrayList<Term> terms = ttr.getTerms();
-            if (terms.get(0).getHumanReadable("abcd") != "a' b' c'") {
+            if (!terms.get(0).getHumanReadable("abcd").equals("a' b' c'")) {
                 System.out.println("La clase TruthTableReader no funciona bien, el termino 0 no esta bien, devolvio " + terms.get(0).getHumanReadable("abcd") + ", ejemplo 9");
-            } else if (terms.get(1).getHumanReadable("abcd") != "a' b c") {
+            } else if (!terms.get(1).getHumanReadable("abcd").equals("a' b c")) {
                 System.out.println("La clase TruthTableReader no funciona bien, el termino 0 no esta bien, devolvio " + terms.get(1).getHumanReadable("abcd") + ", ejemplo 9");
-            } else if (terms.get(2).getHumanReadable("abcd") != "a b' c'") {
+            } else if (!terms.get(2).getHumanReadable("abcd").equals("a b' c'")) {
                 System.out.println("La clase TruthTableReader no funciona bien, el termino 0 no esta bien, devolvio " + terms.get(2).getHumanReadable("abcd") + ", ejemplo 9");
-            } else if (terms.get(3).getHumanReadable("abcd") != "a b c'") {
+            } else if (!terms.get(3).getHumanReadable("abcd").equals("a b c'")) {
                 System.out.println("La clase TruthTableReader no funciona bien, el termino 0 no esta bien, devolvio " + terms.get(3).getHumanReadable("abcd") + ", ejemplo 9");
-            } else if (terms.get(4).getHumanReadable("abcd") != "a b c") {
+            } else if (!terms.get(4).getHumanReadable("abcd").equals("a b c")) {
                 System.out.println("La clase TruthTableReader no funciona bien, el termino 0 no esta bien, devolvio " + terms.get(4).getHumanReadable("abcd") + ", ejemplo 9");
             }
             
