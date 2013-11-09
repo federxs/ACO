@@ -5,6 +5,7 @@
 package tpaco;
 
 import java.util.*;
+import tpaco.exception.*;
 
 /**
  *
@@ -12,6 +13,7 @@ import java.util.*;
  */
 public class TruthTableReader {
     private String variableNames;
+    //guardar solo los que son 1
     private ArrayList<Term> terms;
     
     public TruthTableReader(ArrayList<Term> terms, String variableNames) {
@@ -19,7 +21,21 @@ public class TruthTableReader {
         this.variableNames = variableNames;
     }
     
-    public static TruthTableReader read(String formulas) {
+    public String getVariables() {
+        return this.variableNames;
+    }
+    
+    public ArrayList<Term> getTerms() {
+        return this.terms;
+    }
+    
+    public int getTermsSize() {
+        return this.terms.size();
+    }
+    
+    public static TruthTableReader read(String formulas) 
+            throws TruthTableReaderWrongTerm, TruthTableReaderWrongVariables {
+
         String parts[] = formulas.split("\\n");
         String variableNames;
         ArrayList<Term> terms = new ArrayList<Term>();
