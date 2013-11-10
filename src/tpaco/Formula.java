@@ -41,7 +41,7 @@ public class Formula {
     @Override
     public String toString() {
         String result = "";
-        result += termList.size() + " terms, " + termList.get(0).getNumVars() + " variables\n";
+        result += termList.size() + " terminos, " + termList.get(0).getNumVars() + " variables\n";
         for (int i = 0; i < termList.size(); i++) {
             result += termList.get(i) + "\n";
         }
@@ -219,7 +219,8 @@ public class Formula {
 //        }
 //        System.out.println(r.toString());
 //    }
-    public void terminosDerivados() {
+    public String terminosDerivados() {
+        StringBuilder r = new StringBuilder();
         List<Term> nuevosTerminos;
         Formula nuevaFormula, formulaTermino;
         int i;
@@ -236,7 +237,8 @@ public class Formula {
             nuevosTerminos.add(termList.get(i));
             formulaTermino = new Formula(nuevosTerminos);
             formulaTermino.variables = variables;
-            System.out.println("El termino (" + formulaTermino.getHumanReadable() + ") proviene de: \n" + nuevaFormula.getHumanReadable());
+            r.append("\nEl termino (" + formulaTermino.getHumanReadable() + ") proviene de: \n" + nuevaFormula.getHumanReadable());
         }
+        return r.toString();
     }
 }
