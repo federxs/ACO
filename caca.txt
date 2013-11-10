@@ -1,0 +1,19 @@
+ public void terminosDerivados(){
+        List<Term> nuevosTerminos;
+        Formula nuevaFormula, formulaTermino;
+        int i;
+        for (i = 0; i < termList.size(); i++) {
+            nuevosTerminos = new ArrayList<Term>();
+            for (int j = 0; j < originalTermList.size(); j++) {
+                if (termList.get(i).implies(originalTermList.get(j)) == true) {
+                    nuevosTerminos.add(originalTermList.get(j));
+                }
+            }
+            nuevaFormula = new Formula(nuevosTerminos);
+            nuevaFormula.variables = variables;
+            nuevosTerminos = new ArrayList<Term>();
+            nuevosTerminos.add(termList.get(i));
+            formulaTermino = new Formula(nuevosTerminos);
+            formulaTermino.variables = variables;
+            System.out.println("El termino ("+ formulaTermino.getHumanReadable() +") proviene de: \n" + nuevaFormula.getHumanReadable());
+        }
