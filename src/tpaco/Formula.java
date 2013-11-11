@@ -219,25 +219,25 @@ public class Formula {
 //        }
 //        System.out.println(r.toString());
 //    }
-    public String terminosDerivados() {
+    public String derivedTerms() {
         StringBuilder r = new StringBuilder();
-        List<Term> nuevosTerminos;
-        Formula nuevaFormula, formulaTermino;
+        List<Term> newTerms;
+        Formula newFormula, termFormula;
         int i;
         for (i = 0; i < termList.size(); i++) {
-            nuevosTerminos = new ArrayList<Term>();
+            newTerms = new ArrayList<Term>();
             for (int j = 0; j < originalTermList.size(); j++) {
                 if (termList.get(i).implies(originalTermList.get(j)) == true) {
-                    nuevosTerminos.add(originalTermList.get(j));
+                    newTerms.add(originalTermList.get(j));
                 }
             }
-            nuevaFormula = new Formula(nuevosTerminos);
-            nuevaFormula.variables = variables;
-            nuevosTerminos = new ArrayList<Term>();
-            nuevosTerminos.add(termList.get(i));
-            formulaTermino = new Formula(nuevosTerminos);
-            formulaTermino.variables = variables;
-            r.append("\nEl termino (" + formulaTermino.getHumanReadable() + ") proviene de: \n" + nuevaFormula.getHumanReadable());
+            newFormula = new Formula(newTerms);
+            newFormula.variables = variables;
+            newTerms = new ArrayList<Term>();
+            newTerms.add(termList.get(i));
+            termFormula = new Formula(newTerms);
+            termFormula.variables = variables;
+            r.append("\nEl termino (" + termFormula.getHumanReadable() + ") proviene de: \n" + newFormula.getHumanReadable());
         }
         return r.toString();
     }

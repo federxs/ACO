@@ -42,7 +42,7 @@ public class Main {
         f.reducePrimeImplicantsToSubset();
         System.out.println(f);
         System.out.println(f.getHumanReadable());
-        f.terminosDerivados();
+        f.derivedTerms();
     }
     
     public static void testTruthTableReader() {
