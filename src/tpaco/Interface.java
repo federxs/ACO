@@ -149,7 +149,7 @@ Formula f;
     f.reduceToPrimeImplicants();
     f.reducePrimeImplicantsToSubset();
     
-    outData.setText(f.toString()+f.getHumanReadable()+f.derivedTerms());
+    outData.setText(f.toString() + "\nEcuacion de solución:\n f = " + f.getHumanReadable() + "\n" + f.derivedTerms());
     }
     }//GEN-LAST:event_buttonActionPerformed
 
