@@ -196,6 +196,9 @@ public class Formula {
         for (int i = 0; i < termList.size(); i++) {
             result += termList.get(i).getHumanReadable(this.getVariables()) + ((i + 1) == termList.size() ? "" : " + ");
         }
+        if(result.compareToIgnoreCase("") == 0){
+            result = "1";
+        }
         return result;
     }
 
