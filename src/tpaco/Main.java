@@ -4,6 +4,10 @@
  */
 package tpaco;
 
+/**
+ *
+ * @author Federico Prado Macat
+ */
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -72,7 +76,7 @@ public class Main {
         if (tiraError) {
             System.out.println("se rompio la clase, no lee bien el ejemplo 1");
         } else {
-            ttr.printReadable();
+            //ttr.printReadable();
         }
         
         //ejemplo 1.a

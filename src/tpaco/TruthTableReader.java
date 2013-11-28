@@ -65,7 +65,7 @@ public class TruthTableReader {
         for (int i = 1; i < parts.length; i++) {
             line = parts[i].trim();
 
-            //fijarte si no es uno el valor de f
+            //verificamos si no es uno el valor de f
             if (line.charAt(line.length() - 1) != '1') {
                 //validacion tamaño de cada termino
                 if (line.length() != parts[0].length()) {
@@ -94,10 +94,4 @@ public class TruthTableReader {
         return new TruthTableReader(terms, variableNames);
     }
 
-    public void printReadable() {
-        System.out.println("variables: " + variableNames + "\n" + "terminos: " + terms.toString());
-    }
-
-    public void letrasVariables(ArrayList<Term> tablaUsuario) {
-    }
 }

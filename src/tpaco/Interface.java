@@ -149,11 +149,8 @@ Formula f;
     f.reduceToPrimeImplicants();
     f.reducePrimeImplicantsToSubset();
     
-<<<<<<< HEAD
     outData.setText(f.toString() + "\nEcuacion de solución:\n f = " + f.getHumanReadable() + "\n\nDetalle de terminos: " + f.derivedTerms());
-=======
-    outData.setText(f.toString() + "\nEcuacion de solución:\n f = " + f.getHumanReadable() + "\n" + f.derivedTerms());
->>>>>>> 19f242a270652d2d1388b9e1d4e68835462b00b8
+    errorLabel.setText("Funcion simplificada correctamente");
     }
     }//GEN-LAST:event_buttonActionPerformed
 
